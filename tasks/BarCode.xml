@@ -1,0 +1,50 @@
+<Task>
+	<!-- reference task information -->
+	<Reference>
+		<Author>
+			<name>Lukasz Zmuda</name>
+			<link></link>
+		</Author>
+		
+		<Description>
+			<brief>Bar Code Recognition</brief>
+			<full>Bar Code Recognition</full>
+		</Description>
+	</Reference>
+	
+	<!-- task definition -->
+	<Subtasks>
+		<Subtask name="Main">
+			<Executor name="Processing"  period="1">
+				<Component name="Sequence" type="BarCode:Sequence" priority="1" bump="0">
+					<param name="sequence.directory">%[TASK_LOCATION]%/../data/barCodes/</param>
+					<param name="sequence.pattern">.*\.jpg</param>
+					<param name="mode.loop">1</param>
+				</Component>
+				<Component name="BarCode" type="BarCode:BarCode" priority="2" bump="0">
+				</Component>s
+			</Executor>
+
+			<Executor name="Visualization" period="0.2">
+				<Component name="Window" type="BarCode:CvWindow" priority="3" bump="5">
+					<param name="count">1</param>
+					<param name="title">Window</param>
+				</Component>
+			</Executor>
+		</Subtask>	
+	
+	</Subtasks>
+	
+	<!-- pipes connecting datastreams -->
+	<DataStreams>
+		<Source name="Sequence.out_img">
+			<sink>BarCode.in_img</sink>		
+		</Source>
+		<Source name="BarCode.out_img">
+			<sink>Window.in_img</sink>		
+		</Source>
+	</DataStreams>
+</Task>
+
+
+

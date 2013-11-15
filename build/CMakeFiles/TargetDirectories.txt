@@ -1,0 +1,4 @@
+/home/lzmuda/DCL/BarCode/build/src/Components/Sequence/CMakeFiles/Sequence.dir
+/home/lzmuda/DCL/BarCode/build/src/Types/Circles/CMakeFiles/TypesCircles.dir
+/home/lzmuda/DCL/BarCode/build/src/Components/BarCode/CMakeFiles/procBarCode.dir
+/home/lzmuda/DCL/BarCode/build/src/Components/CvWindow/CMakeFiles/procCvWindow.dir
